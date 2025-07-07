@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\cliente;
+use App\Models\administrador_tienda;
 use Illuminate\Auth\Access\Response;
 
-class ClientePolicy
+class AdministradorTiendaPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class ClientePolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, cliente $cliente): bool
+    public function view(User $user, administrador_tienda $administradorTienda): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class ClientePolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, cliente $cliente): bool
+    public function update(User $user, administrador_tienda $administradorTienda): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class ClientePolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, cliente $cliente): bool
+    public function delete(User $user, administrador_tienda $administradorTienda): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class ClientePolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, cliente $cliente): bool
+    public function restore(User $user, administrador_tienda $administradorTienda): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class ClientePolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, cliente $cliente): bool
+    public function forceDelete(User $user, administrador_tienda $administradorTienda): bool
     {
         //
     }

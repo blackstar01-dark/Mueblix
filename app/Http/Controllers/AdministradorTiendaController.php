@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreclienteRequest;
-use App\Http\Requests\UpdateclienteRequest;
-use App\Models\cliente;
+use App\Http\Requests\Storeadministrador_tiendaRequest;
+use App\Http\Requests\Updateadministrador_tiendaRequest;
+use App\Models\administrador_tienda;
 
-class ClienteController extends Controller
+class AdministradorTiendaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class ClienteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreclienteRequest $request)
+    public function store(Storeadministrador_tiendaRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(cliente $cliente)
+    public function show(administrador_tienda $administrador_tienda)
     {
         //
     }
@@ -43,7 +43,7 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(cliente $cliente)
+    public function edit(administrador_tienda $administrador_tienda)
     {
         //
     }
@@ -51,7 +51,7 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateclienteRequest $request, cliente $cliente)
+    public function update(Updateadministrador_tiendaRequest $request, administrador_tienda $administrador_tienda)
     {
         //
     }
@@ -59,7 +59,7 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(cliente $cliente)
+    public function destroy(administrador_tienda $administrador_tienda)
     {
         //
     }

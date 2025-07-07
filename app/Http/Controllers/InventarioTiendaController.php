@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreclienteRequest;
-use App\Http\Requests\UpdateclienteRequest;
-use App\Models\cliente;
+use App\Http\Requests\Storeinventario_tiendaRequest;
+use App\Http\Requests\Updateinventario_tiendaRequest;
+use App\Models\inventario_tienda;
 
-class ClienteController extends Controller
+class InventarioTiendaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class ClienteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreclienteRequest $request)
+    public function store(Storeinventario_tiendaRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(cliente $cliente)
+    public function show(inventario_tienda $inventario_tienda)
     {
         //
     }
@@ -43,7 +43,7 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(cliente $cliente)
+    public function edit(inventario_tienda $inventario_tienda)
     {
         //
     }
@@ -51,7 +51,7 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateclienteRequest $request, cliente $cliente)
+    public function update(Updateinventario_tiendaRequest $request, inventario_tienda $inventario_tienda)
     {
         //
     }
@@ -59,7 +59,7 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(cliente $cliente)
+    public function destroy(inventario_tienda $inventario_tienda)
     {
         //
     }
