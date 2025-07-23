@@ -1,6 +1,11 @@
 <?php
 
+use App\Livewire\Clientes\CreateClient;
+use App\Livewire\Producto\CreateProduct;
 use Illuminate\Support\Facades\Route;
+use Livewire\Volt\Volt;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +27,10 @@ Route::view('dashboard', 'dashboard')
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+
+Route::get('/producto/create-product', CreateProduct::class)->name('producto');
+
+Volt::route('cliente', 'pages.cliente')->name('clientes');
 
 require __DIR__.'/auth.php';
