@@ -2,6 +2,9 @@
 
 use App\Livewire\Clientes\CreateClient;
 use App\Livewire\Producto\CreateProduct;
+use App\Livewire\Producto\IndexProducto;
+use App\Livewire\Contacto\CreateContacto;
+use App\Livewire\Ubicacion;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -30,6 +33,12 @@ Route::view('profile', 'profile')
 
 
 Route::get('/producto/create-product', CreateProduct::class)->name('producto');
+
+Route::get('/producto/index-producto', IndexProducto::class)->name('indexproducto');
+
+Route::get('/contacto/create-contacto', CreateContacto::class);
+
+Route::get('/ubicacion', Ubicacion::class);
 
 Volt::route('cliente', 'pages.cliente')->name('clientes');
 

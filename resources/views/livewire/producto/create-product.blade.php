@@ -35,7 +35,7 @@
         </div>
 
         <div class="flex justify-center">
-          <button type="submit"
+          <button type="submit" 
             class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2 text-center shadow-md drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] transition">
             Registrar
           </button>

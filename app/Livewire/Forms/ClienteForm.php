@@ -72,7 +72,7 @@ class ClienteForm extends Form
             'mes_nac' => $this->mes_nac,
             'ano_nac' => $this->ano_nac,
             'correo' => $this->correo,
-            'password' => bcrypt($this->password),
+            'password' => hash
         ]);
     }
 }
