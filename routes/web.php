@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Clientes\CreateClient;
+use App\Livewire\Clientes\LoginClient;
 use App\Livewire\Producto\CreateProduct;
 use App\Livewire\Producto\IndexProducto;
 use App\Livewire\Contacto\CreateContacto;
@@ -40,6 +41,14 @@ Route::get('/contacto/create-contacto', CreateContacto::class);
 
 Route::get('/ubicacion', Ubicacion::class);
 
+Route::get('/clientes/login-client', LoginClient::class)->name('');
+
+Route::get('/clientes/create-client', CreateClient::class);
+
+
+
 Volt::route('cliente', 'pages.cliente')->name('clientes');
+
+
 
 require __DIR__.'/auth.php';

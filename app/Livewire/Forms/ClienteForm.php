@@ -4,6 +4,7 @@ namespace App\Livewire\Forms;
 
 use App\Models\cliente;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Form;
 
 class ClienteForm extends Form
@@ -72,7 +73,7 @@ class ClienteForm extends Form
             'mes_nac' => $this->mes_nac,
             'ano_nac' => $this->ano_nac,
             'correo' => $this->correo,
-            'password' => hash
+            'password' => Hash::make($this->password),
         ]);
     }
 }
