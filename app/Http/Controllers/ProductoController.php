@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreproductoRequest;
-use App\Http\Requests\UpdateproductoRequest;
-use App\Models\producto;
+use App\Http\Requests\StoreProductoRequest;
+use App\Http\Requests\UpdateProductoRequest;
+use App\Models\Producto;
 
 class ProductoController extends Controller
 {
@@ -27,7 +27,7 @@ class ProductoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreproductoRequest $request)
+    public function store(StoreProductoRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class ProductoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(producto $producto)
+    public function show(Producto $producto)
     {
         //
     }
@@ -43,7 +43,7 @@ class ProductoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(producto $producto)
+    public function edit(Producto $producto)
     {
         //
     }
@@ -51,7 +51,7 @@ class ProductoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateproductoRequest $request, producto $producto)
+    public function update(UpdateProductoRequest $request, Producto $producto)
     {
         //
     }
@@ -59,7 +59,7 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(producto $producto)
+    public function destroy(Producto $producto)
     {
         //
     }

@@ -2,12 +2,14 @@
 
 namespace App\Livewire\Forms;
 
-use App\Models\producto;
+use App\Models\Producto;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
+use Livewire\WithFileUploads;
 
 class ProductForm extends Form
 {
+    use WithFileUploads;
 
     #[Validate('required|min:5')]
     public $nombre;
@@ -18,12 +20,17 @@ class ProductForm extends Form
     #[Validate('required')]
     public $precio;
 
+    #[Validate('nullable|image|max:2048')]
+    public $imagen;
+
     public function store(){
         $this->validate();
 
-        producto::create($this->all());
+        $ruta = $this->imagen->store('productos', 'public');
 
-        return $this->redirect('/');
+        Producto::create($this->all());
+
+        return redirect('/producto/index-productophp ');
     }
 
     public function messages(): array
@@ -36,6 +43,9 @@ class ProductForm extends Form
             'descripcion.min' => 'El campo descripcion debe tener al menos 5 caracteres',
 
             'precio.required' => 'El campo precio es obligatorio',
+
+            'imagen.image' => 'El archivo debe ser una imagen',
+            'imagen.max' => 'La imagen no debe ser mayor a 2MB',
         ];
     }
 

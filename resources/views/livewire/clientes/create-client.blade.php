@@ -8,7 +8,7 @@
       <div class="p-6 space-y-8 sm:p-10">
         <h1 class="text-3xl font-extrabold text-center text-gray-900 dark:text-white">Crea tu cuenta</h1>
 
-        <form action="#" class="space-y-8">
+        <form action="#" class="space-y-8" wire.submit="save">
 
           <!-- DATOS PERSONALES -->
           <div>

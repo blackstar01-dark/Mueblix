@@ -31,7 +31,7 @@
                     <p class="mb-8 text-lg font-medium text-gray-700 lg:text-xl dark:text-gray-300">
                         Descubre muebles únicos que combinan diseño, funcionalidad y calidad para cada rincón de tu hogar.
                     </p>
-                    <a href="#" class="inline-flex items-center rounded-full bg-green-600 px-6 py-3 text-white font-semibold shadow-md hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-600 transition">
+                    <a href="/producto/create-product" class="inline-flex items-center rounded-full bg-green-600 px-6 py-3 text-white font-semibold shadow-md hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-600 transition">
                         Explorar nuestros muebles
                         <svg class="ml-2 w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M1 5h12m0 0L9 1m4 4L9 9" />

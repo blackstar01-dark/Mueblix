@@ -5,17 +5,19 @@ namespace App\Livewire\Producto;
 use App\Livewire\Forms\ProductForm;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
-use function Livewire\Volt\layout;
+use Livewire\WithFileUploads;
 
 
 class CreateProduct extends Component
 {
+    use WithFileUploads;
+
     public ProductForm $form;
 
     public function save(){
         $this->form->store();
 
-        return $this->redirect("/productos/index");
+        return redirect("/producto/index-producto");
 
     }
 
