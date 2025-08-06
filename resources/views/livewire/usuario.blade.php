@@ -9,7 +9,7 @@
         <div class="flex flex-col p-8 text-center bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-xl hover:shadow-2xl transform transition duration-300 hover:-translate-y-1">
             <h3 class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">Cliente</h3>
             <p class="text-gray-500 dark:text-gray-300 mb-6">Compra productos, accede a promociones y haz seguimiento a tus pedidos.</p>
-            <a href="" class="mt-auto inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-300">
+            <a href="/clientes/login-client" class="mt-auto inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-300" wire:navigate.hover>
                 Ingresar como Cliente
             </a>
         </div>

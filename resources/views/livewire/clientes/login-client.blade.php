@@ -23,42 +23,21 @@
                 <div class="flex-grow h-px bg-gray-600"></div>
             </div>
 
-            <form wire:submit.prevent="register" class="space-y-4">
+            <form wire:submit.prevent="login" class="space-y-4">
                 <div>
                     <label class="block text-sm mb-1">Ingresa tu correo</label>
-                    <input type="text" wire:model="name" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
-                    @error('name') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
+                    <input type="email" wire:model="login.correo" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    @error('login.correo') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label class="block text-sm mb-1">Ingresa tu contrasena</label>
-                    <input type="email" wire:model="email" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
-                    @error('email') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
-                </div>
-
-                <div>
-                    <label class="block text-sm mb-1">Confirma tu contrasena</label>
-                    <input type="password" wire:model="password" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
-                    @error('password') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
-                </div>
-
-                <div class="space-y-2">
-                    <label class="flex items-center text-sm gap-2">
-                        <input type="checkbox" wire:model="terms" class="form-checkbox text-green-600" />
-                        I agree to the
-                        <a href="#" class="text-blue-400 underline">Terms of Use</a> and
-                        <a href="#" class="text-blue-400 underline">Privacy Policy</a>.
-                    </label>
-                    @error('terms') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
-
-                    <label class="flex items-center text-sm gap-2">
-                        <input type="checkbox" wire:model="updates" class="form-checkbox text-green-600" />
-                        Email me about product updates and resources.
-                    </label>
+                    <input type="password" wire:model="login.password" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    @error('login.password') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
                 </div>
 
                 <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 rounded-md">
-                    Create an account
+                    Ingresar
                 </button>
             </form>
 

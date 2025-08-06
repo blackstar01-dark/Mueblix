@@ -3,10 +3,11 @@
 namespace App\Livewire\Clientes;
 
 use App\Livewire\Forms\ClienteForm;
-use App\Models\cliente;
+use App\Models\Cliente;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Illuminate\Support\Facades\Session;
 
 
 class CreateClient extends Component
@@ -16,7 +17,9 @@ class CreateClient extends Component
     public function save(){
         $this->cliente->store();
 
-        return $this->redirect("/clientes/index");
+        Session::flash("success", "Cliente creado correctamente");
+
+        return redirect('/');
     }
 
     #[Layout('components.layouts.app')]

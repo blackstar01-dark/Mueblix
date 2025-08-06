@@ -8,7 +8,7 @@
       <div class="p-6 space-y-8 sm:p-10">
         <h1 class="text-3xl font-extrabold text-center text-gray-900 dark:text-white">Crea tu cuenta</h1>
 
-        <form action="#" class="space-y-8" wire.submit="save">
+        <form wire:submit.prevent="save" class="space-y-8">
 
           <!-- DATOS PERSONALES -->
           <div>
@@ -16,24 +16,35 @@
             <div class="grid md:grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">Nombres</label>
-                <input type="text" class="input-modern" placeholder="Escribe tus nombres" wire:model="form.nombres">
+                <input type="text" class="input-modern" placeholder="Escribe tus nombres" wire:model="cliente.nombres">
+                @error('cliente.nombres') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">Apellidos</label>
-                <input type="text" class="input-modern" placeholder="Escribe tus apellidos" wire:model="form.apellidos">
+                <input type="text" class="input-modern" placeholder="Escribe tus apellidos" wire:model="cliente.apellidos">
+                @error('cliente.apellidos') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
               <div class="md:col-span-2">
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">CURP</label>
-                <input type="text" class="input-modern" placeholder="CURP" wire:model="form.curp">
+                <input type="text" class="input-modern" placeholder="CURP" wire:model="cliente.curp">
+                @error('cliente.curp') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
               <div class="md:col-span-2">
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">Sexo</label>
-                <select class="input-modern" wire:model="form.sexo">
-                  <option selected disabled>Selecciona una opción</option>
-                  <option value="masculino">Masculino</option>
-                  <option value="femenino">Femenino</option>
-                  <option value="otro">Otro</option>
+                <select class="input-modern" wire:model="cliente.sexo">
+                  <option value="" selected disabled>Selecciona una opción</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino</option>
                 </select>
+                @error('cliente.sexo') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
             </div>
           </div>
@@ -44,27 +55,45 @@
             <div class="grid md:grid-cols-3 gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">Calle</label>
-                <input type="text" class="input-modern" wire:model="form.calle">
+                <input type="text" class="input-modern" wire:model="cliente.calle">
+                @error('cliente.calle') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">Número</label>
-                <input type="text" class="input-modern" wire:model="form.numero">
+                <input type="text" class="input-modern" wire:model="cliente.numero">
+                @error('cliente.numero') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">Código Postal</label>
-                <input type="text" class="input-modern" wire:model="form.codigo_postal">
+                <input type="text" class="input-modern" wire:model="cliente.codigo_postal">
+                @error('cliente.codigo_postal') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">Colonia</label>
-                <input type="text" class="input-modern" wire:model="form.colonia">
+                <input type="text" class="input-modern" wire:model="cliente.colonia">
+                @error('cliente.colonia') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">Ciudad</label>
-                <input type="text" class="input-modern" wire:model="form.cuidad">
+                <input type="text" class="input-modern" wire:model="cliente.cuidad">
+                @error('cliente.cuidad') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">Estado</label>
-                <input type="text" class="input-modern" wire:model="form.estado">
+                <input type="text" class="input-modern" wire:model="cliente.estado">
+                @error('cliente.estado') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
             </div>
           </div>
@@ -75,15 +104,24 @@
             <div class="grid md:grid-cols-3 gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">Día</label>
-                <input type="text" class="input-modern" placeholder="01" wire:model="form.dia_nac">
+                <input type="text" class="input-modern" placeholder="01" wire:model="cliente.dia_nac">
+                @error('cliente.dia_nac') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">Mes</label>
-                <input type="text" class="input-modern" placeholder="Enero" wire:model="form.mes_nac">
+                <input type="text" class="input-modern" placeholder="Enero" wire:model="cliente.mes_nac">
+                @error('cliente.mes_nac') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white text-center">Año</label>
-                <input type="text" class="input-modern" placeholder="2000" wire:model="form.ano_nac">
+                <input type="text" class="input-modern" placeholder="2000" wire:model="cliente.ano_nac">
+                @error('cliente.ano_nac') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
             </div>
           </div>
@@ -94,15 +132,24 @@
             <div class="grid gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white">Correo electrónico</label>
-                <input type="email" class="input-modern" placeholder="ejemplo@email.com" wire:model="form.correo">
+                <input type="email" class="input-modern" placeholder="ejemplo@email.com" wire:model="cliente.correo">
+                @error('cliente.correo') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white">Teléfono</label>
-                <input type="tel" class="input-modern" wire:model="form.telefono">
+                <input type="tel" class="input-modern" wire:model="cliente.telefono">
+                @error('cliente.telefono') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
-                <input type="password" class="input-modern" wire:model="form.password">
+                <input type="password" class="input-modern" wire:model="cliente.password">
+                @error('cliente.password') 
+                  <p class="text-red-600 text-xs mt-1">{{ $message }}</p> 
+                @enderror
               </div>
             </div>
           </div>
@@ -118,5 +165,3 @@
     </div>
   </div>
 </section>
-
-

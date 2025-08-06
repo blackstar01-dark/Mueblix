@@ -21,6 +21,15 @@
 
     <main class="mt-24 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Sección de bienvenida + formulario -->
+
+        
+        @if(session()->has('success'))
+        <div class="mb-6 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">¡Éxito! </strong>
+            <span class="block sm:inline">{{ session('success') }}</span>
+        </div>
+        @endif
+
         <section class="bg-white dark:bg-gray-900 rounded-xl my-10 shadow-2xl border border-gray-700 dark:border-gray-700 p-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-16">
                 <!-- Izquierda: texto -->
