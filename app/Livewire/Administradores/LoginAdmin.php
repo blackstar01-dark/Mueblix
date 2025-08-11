@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Livewire\Clientes;
+namespace App\Livewire\Administradores;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
-class LoginClient extends Component
+class LoginAdmin extends Component
 {
     public $correo = '';
     public $password = '';
@@ -21,21 +21,20 @@ class LoginClient extends Component
     {
         $this->validate();
 
-        if (! Auth::guard('clientes')->attempt([
+        if (! Auth::guard('administradores')->attempt([
             'correo' => $this->correo,
-            'password' => $this->password
+            'password' => $this->password,
         ], $this->remember)) {
             throw ValidationException::withMessages([
                 'correo' => __('auth.failed'),
             ]);
         }
 
-        // Login exitoso, redirigimos
         return redirect()->intended('/');
     }
 
     public function render()
     {
-        return view('livewire.clientes.login-client');
+        return view('livewire.administradores.login-admin');
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Cliente extends Authenticatable
+class Administrador extends Authenticatable
 {
     use HasFactory;
 
@@ -14,6 +14,7 @@ class Cliente extends Authenticatable
         'nombres',
         'apellidos',
         'curp',
+        'rfc',
         'sexo',
         'calle',
         'numero',
@@ -22,30 +23,27 @@ class Cliente extends Authenticatable
         'colonia',
         'estado',
         'dia_nac',
-        'mes_nac',
-        'ano_nac',
         'correo',
         'telefono',
         'password',
     ];
+
     protected $hidden = [
         'password',
         'remember_token',
-
     ];
 
-    protected $primaryKey = 'id_cliente';
+    protected $primaryKey = 'id_administrador';
 
-    public $incrementing = true;
+    public $incrementing = 'true';
 
     protected $keyType = 'int';
 
-    protected $casts = [
+    public $casts = [
 
     ];
 
-    public function getAuthIdentifierName()
-    {
-        return 'id_cliente';
+    public function getAuthIdentifierName(){
+        return 'id_administrador';
     }
 }

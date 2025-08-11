@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clientes', function (Blueprint $table) {
-            $table->id('id_cliente');
+        Schema::create('administradors', function (Blueprint $table) {
+            $table->id('id_administrador');
             $table->timestamps();
             $table->rememberToken();
             $table->string('nombres');
@@ -25,13 +25,15 @@ return new class extends Migration
             $table->string('cuidad');
             $table->string('colonia');
             $table->string('estado');
-            $table->integer('dia_nac');
-            $table->integer('mes_nac');
+            $table->string('dia_nac');
+            $table->string('mes_nac');
             $table->integer('ano_nac');
             $table->string('correo')->unique();
-            $table->string('telefono');
+            $table->string('rfc')->unique();
+            $table->string('telefono')->unique();
             $table->string('password');
         });
+
     }
 
     /**
@@ -39,6 +41,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('administradors');
     }
 };

@@ -52,12 +52,17 @@ class LoginClientTest extends TestCase
 
 
         Livewire::test(LoginClient::class)
-            ->set('login.correo', 'edgarcruz12@outlook.com')
-            ->set('login.password', 'password123')
+            ->set('correo', 'edgarcruz12@outlook.com')
+            ->set('password', 'password123')
+             ->set('remember', true)
             ->call('login')
             ->assertRedirect('/');
 
+
+        $this->assertAuthenticated('clientes');    
         $this->assertAuthenticatedAs($cliente, 'clientes');
+
+        
 
     }
 }

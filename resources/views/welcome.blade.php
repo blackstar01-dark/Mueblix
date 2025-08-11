@@ -23,13 +23,19 @@
         <!-- Sección de bienvenida + formulario -->
 
         
-        @if(session()->has('success'))
-        <div class="mb-6 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-            <strong class="font-bold">¡Éxito! </strong>
-            <span class="block sm:inline">{{ session('success') }}</span>
-        </div>
+        @if(session()->has('success_clientes'))
+            <div class="mb-6 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold">¡Éxito! </strong>
+                <span class="block sm:inline">{{ session('success_clientes') }}</span>
+            </div>
         @endif
 
+        @if(session()->has('success_administradores'))
+            <div class="mb-6 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold">¡Éxito! </strong>
+                <span class="block sm:inline">{{ session('success_administradores') }}</span>
+            </div>
+        @endif
         <section class="bg-white dark:bg-gray-900 rounded-xl my-10 shadow-2xl border border-gray-700 dark:border-gray-700 p-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-16">
                 <!-- Izquierda: texto -->
@@ -54,7 +60,7 @@
                         Regístrate en <span class="text-green-500">M</span>uebli<span class="text-green-500">x</span>
                     </h2>
 
-                    <form action="#" method="POST" class="space-y-6">
+                    <form  class="space-y-6">
                         @csrf
                         <div>
                             <label for="email" class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300">Correo electrónico</label>

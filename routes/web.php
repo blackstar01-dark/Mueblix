@@ -5,6 +5,8 @@ use App\Livewire\Clientes\LoginClient;
 use App\Livewire\Producto\CreateProduct;
 use App\Livewire\Producto\IndexProducto;
 use App\Livewire\Contacto\CreateContacto;
+use App\Livewire\Administradores\LoginAdmin;
+use App\Livewire\Administradores\Index;
 use App\Livewire\Ubicacion;
 use App\Livewire\Usuario;
 use Illuminate\Support\Facades\Route;
@@ -42,7 +44,11 @@ Route::get('/contacto/create-contacto', CreateContacto::class);
 
 Route::get('/ubicacion', Ubicacion::class);
 
-Route::get('/clientes/login-client', LoginClient::class)->name('');
+Route::get('/administradores/index', Index::class);
+
+Route::middleware('guest:clientes')->get('/clientes/login-client', LoginClient::class)->name('clientes.login');
+
+Route::middleware('guest:administradores')->get('/administradores/login-admin', LoginAdmin::class);
 
 Route::get('/clientes/create-client', CreateClient::class);
 

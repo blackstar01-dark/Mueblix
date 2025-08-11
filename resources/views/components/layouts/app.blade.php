@@ -17,7 +17,7 @@
             @livewire('layout.navigation')
         </header>
 
-        <main class="mt-24 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <main class="mt-24 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-3">
         {{ $slot }}
         </main>
         @livewire('layout.footer')

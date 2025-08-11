@@ -26,14 +26,14 @@
             <form wire:submit.prevent="login" class="space-y-4">
                 <div>
                     <label class="block text-sm mb-1">Ingresa tu correo</label>
-                    <input type="email" wire:model="login.correo" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
-                    @error('login.correo') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
+                    <input type="email" wire:model="correo" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    @error('correo') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label class="block text-sm mb-1">Ingresa tu contrasena</label>
-                    <input type="password" wire:model="login.password" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
-                    @error('login.password') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
+                    <input type="password" wire:model="password" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    @error('password') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
                 </div>
 
                 <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 rounded-md">

@@ -27,7 +27,7 @@
         <div class="flex flex-col p-8 text-center bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-xl hover:shadow-2xl transform transition duration-300 hover:-translate-y-1">
             <h3 class="text-2xl font-bold text-red-600 dark:text-red-400 mb-2">Administrador</h3>
             <p class="text-gray-500 dark:text-gray-300 mb-6">Accede al panel de control completo para administrar todo el sistema.</p>
-            <a href="" class="mt-auto inline-block px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition duration-300">
+            <a href="/administradores/login-admin" class="mt-auto inline-block px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition duration-300" wire:navigate.hover>
                 Ingresar como Administrador
             </a>
         </div>
