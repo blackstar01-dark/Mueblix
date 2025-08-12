@@ -12,7 +12,17 @@ class CreateProduct extends Component
 {
     use WithFileUploads;
 
+    public bool $showModal = false;
+
     public ProductForm $form;
+
+    public function openModal(){
+        $this->showModal = true;
+    }
+
+    public function closeModal(){
+        $this->showModal = false;
+    }
 
     public function save(){
         $this->form->store();
