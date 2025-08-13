@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Producto;
 
+use App\Models\Producto;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 
@@ -12,8 +13,10 @@ class IndexProducto extends Component
 
     public function render()
     {
+        $productos = Producto::all();
+
         return view('livewire.producto.index-producto', [
-            'title' => $this->title,
+            'productos' => $productos,
         ]);
 
     }

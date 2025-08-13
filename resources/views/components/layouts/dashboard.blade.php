@@ -26,21 +26,37 @@
         </button>
 
         <!-- Logo -->
-        <a href="#" class="flex items-center space-x-3">
-          <img src="https://flowbite.com/docs/images/logo.svg" alt="FlowBite Logo" class="h-8" />
+        <a href="/" class="flex items-center space-x-3">
+          <img src="" alt="FlowBite Logo" class="h-8" />
           <span class="text-xl font-semibold sm:text-2xl dark:text-white tracking-wide">Mueblix</span>
         </a>
 
         <!-- Menú usuario -->
+        @php
+            if(auth('administradores')->check()){
+                $usuario = auth('administradores')->user();
+                $rol = 'Administrador';
+            }
+
+            $fotoUsuario = $usuario && $usuario->foto
+                ?asset('storage/'. $usuario->foto)
+                :($usuario
+                    ?'https://ui-avatars.com/api/?name=' . urlencode($usuario->name ?? 'U') . '&background=10B981&color=fff'
+                    : 'https://ui-avatars.com/api/?name=Invitado&background=9CA3AF&color=fff'
+                );
+
+        @endphp
+          @if($usuario)
+
         <div class="relative ml-3">
           <button id="userMenuButton" aria-expanded="false" aria-haspopup="true" type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-400 dark:focus:ring-gray-600 transition focus:outline-none" aria-label="Abrir menú de usuario">
-            <img class="w-8 h-8 rounded-full ring-2 ring-gray-300 dark:ring-gray-600" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Foto de usuario" />
+            <img class="w-8 h-8 rounded-full ring-2 ring-gray-300 dark:ring-gray-600" src="{{ $fotoUsuario }}" alt="Foto de usuario" />
           </button>
 
           <div id="userMenu" class="hidden absolute right-0 mt-2 w-52 bg-white rounded-lg shadow-lg py-2 ring-1 ring-black ring-opacity-5 dark:bg-gray-800 z-50" role="menu" aria-orientation="vertical" aria-labelledby="userMenuButton" tabindex="-1">
             <div class="px-5 py-3 text-sm text-gray-900 dark:text-gray-100 border-b border-gray-200 dark:border-gray-700">
-              <p class="font-semibold">Usuario</p>
-              <p class="truncate text-xs text-gray-500 dark:text-gray-400">correo@ejemplo.com</p>
+              <p class="font-semibold">{{ $usuario->nombres ?? $usuario->nombres }}</p>
+              <p class="truncate text-xs text-gray-500 dark:text-gray-400">{{ $usuario->email ?? $usuario->correo }}</p>
             </div>
             <a href="#" class="block px-5 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white transition" role="menuitem" tabindex="-1">Dashboard</a>
             <a href="#" class="block px-5 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white transition" role="menuitem" tabindex="-1">Configuración</a>
@@ -48,6 +64,7 @@
             <a href="#" class="block px-5 py-2 text-sm text-red-600 hover:bg-red-100 dark:text-red-400 dark:hover:bg-red-600 dark:hover:text-white transition" role="menuitem" tabindex="-1">Salir</a>
           </div>
         </div>
+          @endif
       </div>
     </nav>
   </header>
@@ -57,12 +74,12 @@
     <nav class="h-full px-4 py-6 flex flex-col justify-between">
       <ul class="space-y-3 font-medium">
         <li>
-          <a href="#" class="flex items-center p-3 rounded-lg text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500">
+          <a href="/" class="flex items-center p-3 rounded-lg text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500">
             <svg class="w-5 h-5 text-gray-500 dark:text-gray-400 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
               <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
               <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
             </svg>
-            Dashboard
+            Inicio
           </a>
         </li>
         <!-- Otros enlaces -->

@@ -27,6 +27,8 @@ class CreateProduct extends Component
     public function save(){
         $this->form->store();
 
+        $this->closeModal();
+
         return redirect("/producto/index-producto");
 
     }

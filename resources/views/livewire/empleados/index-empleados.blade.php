@@ -7,12 +7,12 @@
 
                 <!-- Buscador -->
                 <div class="w-full md:w-1/2">
-                    <livewire:producto.search-product />
+                    <livewire:empleado.search-empleado />
                 </div>
 
                 <!-- Botones -->
                 <div class="flex items-center space-x-3">
-                    <livewire:producto.create-product />
+                    <livewire:empleado.create-empleado />
 
                     <!-- Botón Acciones -->
                     <div class="relative" @click.away="openActions = false">
@@ -89,7 +89,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <livewire:producto.list-product />
+                        <livewire:empleado.list-empleado />
                     </tbody>
                 </table>
             </div>

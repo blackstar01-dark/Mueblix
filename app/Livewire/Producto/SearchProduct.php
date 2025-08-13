@@ -10,16 +10,13 @@ use Livewire\WithPagination;
 class SearchProduct extends Component
 {
     public $searchText = '';
-    public $results = [];
 
-    public function updatingSearchText() {
-        $search = '%' .$this->searchText. '%';
-
-        $this->results = Producto::where('nombre', 'like', $search)->get();
+    public function updatedSearchText($value)
+    {
+        $this->emit('filtroProductos', $value);
     }
 
-    public function render()
-    {
+    public function render(){
         return view('livewire.producto.search-product');
     }
 }

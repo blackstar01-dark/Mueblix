@@ -36,27 +36,27 @@
               <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
               <input
                 type="text"
-                wire:model.defer="nombre"
+                wire:model.defer="form.nombre"
                 class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:text-white"
               />
-              @error('nombre') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+              @error('form.nombre') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
 
             <div>
               <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Precio</label>
               <input
                 type="number"
-                wire:model.defer="precio"
+                wire:model.defer="form.precio"
                 step="0.01"
                 class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:text-white"
               />
-              @error('precio') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+              @error('form.precio') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
 
             <div>
               <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Categoría</label>
               <select
-                wire:model.defer="categoria"
+                wire:model.def="form.categoria"
                 class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:text-white"
               >
                 <option value="">Selecciona una categoría</option>
@@ -65,18 +65,35 @@
                 <option value="Almacenamiento">Almacenamiento</option>
                 <option value="Exterior">Exterior</option>
               </select>
-              @error('categoria') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+              @error('form.categoria') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
 
             <div class="sm:col-span-2">
               <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripción</label>
               <textarea
-                wire:model.defer="descripcion"
+                wire:model.defer="form.descripcion"
                 rows="4"
                 class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:text-white"
                 placeholder="Escribe la descripción del producto"
               ></textarea>
-              @error('descripcion') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+              @error('form.descripcion') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+            </div>
+
+            {{-- Imagen --}}
+            <div class="sm:col-span-2">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen</label>
+              <input
+                type="file"
+                wire:model="form.imagen"
+                class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:text-white"
+              />
+              @error('form.imagen') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+
+              @if ($form->imagen)
+                <div class="mt-2">
+                  <img src="{{ $form->imagen->temporaryUrl() }}" class="h-32 rounded object-cover" />
+                </div>
+              @endif
             </div>
           </div>
 
