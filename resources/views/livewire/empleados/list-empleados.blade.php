@@ -1,19 +1,11 @@
 <div>
-    @foreach ($empleado as $empleado)
         <tr class="border-b dark:border-gray-700">
             <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                {{ $producto->nombre }}
+                
             </th>
-            <td class="px-4 py-3">{{ $producto->categoria }}</td>
-            <td class="px-4 py-3">${{ number_format($producto->precio, 2) }}</td>
-            <td class="px-4 py-3">{{ $producto->descripcion }}</td>
-            <td class="px-4 py-3">
-                @if ($producto->imagen)
-                    <img src="{{ asset('storage/' . $producto->imagen) }}" class="h-16 w-16 object-cover rounded" />
-                @else
-                    <span class="text-sm italic text-gray-400">Sin imagen</span>
-                @endif
-            </td>
+            <td class="px-4 py-3"></td>
+            <td class="px-4 py-3"></td>
+            <td class="px-4 py-3"></td>
             <td class="px-4 py-3 flex items-center justify-end">
                 <!-- Botones de acción (Show, Edit, Delete) -->
                 <div class="relative">
@@ -27,5 +19,4 @@
                 </div>
             </td>
         </tr>
-    @endforeach
 </div>

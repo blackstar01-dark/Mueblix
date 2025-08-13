@@ -67,6 +67,16 @@
               </select>
               @error('form.categoria') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
+            <div>
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cantidad</label>
+              <input
+                type="number"
+                wire:model.defer="form.cantidad"
+                step="0.01"
+                class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:text-white"
+              />
+              @error('form.cantidad') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+            </div>
 
             <div class="sm:col-span-2">
               <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripción</label>

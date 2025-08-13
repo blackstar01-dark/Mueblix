@@ -82,6 +82,7 @@
                             <th class="px-4 py-3">Categoria</th>
                             <th class="px-4 py-3">Precio</th>
                             <th class="px-4 py-3">Descripcion</th>
+                            <th class="px-4 py-3">Cantidad</th>
                             <th class="px-4 py-3">Foto</th>
                             <th class="px-4 py-3">
                                 <span class="sr-only">Acciones</span>

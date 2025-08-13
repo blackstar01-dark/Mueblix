@@ -7,6 +7,7 @@
             <td class="px-4 py-3">{{ $producto->categoria }}</td>
             <td class="px-4 py-3">${{ number_format($producto->precio, 2) }}</td>
             <td class="px-4 py-3">{{ $producto->descripcion }}</td>
+            <td class="px-4 py-3">{{ $producto->cantidad }}</td>
             <td class="px-4 py-3">
                 @if ($producto->imagen)
                     <img src="{{ asset('storage/' . $producto->imagen) }}" class="h-16 w-16 object-cover rounded" />

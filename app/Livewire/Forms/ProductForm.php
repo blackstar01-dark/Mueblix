@@ -23,6 +23,9 @@ class ProductForm extends Form
     #[Validate('required')]
     public $categoria;
 
+    #[Validate('required')]
+    public $cantidad;
+
     #[Validate('nullable|image|max:2048')]
     public $imagen;
 
@@ -41,6 +44,7 @@ class ProductForm extends Form
             'descripcion' => $this->descripcion,
             'precio' => $this->precio,
             'categoria' => $this->categoria,
+            'cantidad' => $this->cantidad,
             'imagen' => $ruta, // <-- solo la ruta, no el archivo
         ]);
     }
@@ -56,6 +60,7 @@ class ProductForm extends Form
             'categoria.required' => 'El campo categoria es obligatorio',
             'imagen.image' => 'El archivo debe ser una imagen',
             'imagen.max' => 'La imagen no debe ser mayor a 2MB',
+            'cantidad.required' => 'El campo cantidad es obligatorio',
         ];
     }
 

@@ -7,12 +7,11 @@
 
                 <!-- Buscador -->
                 <div class="w-full md:w-1/2">
-                    <livewire:empleado.search-empleado />
                 </div>
 
                 <!-- Botones -->
                 <div class="flex items-center space-x-3">
-                    <livewire:empleado.create-empleado />
+                    <livewire:empleados.create-empleados/>
 
                     <!-- Botón Acciones -->
                     <div class="relative" @click.away="openActions = false">
@@ -37,39 +36,6 @@
                             </ul>
                         </div>
                     </div>
-
-                    <!-- Botón Filtro -->
-                    <div class="relative" @click.away="openFilter = false">
-                        <button @click="openFilter = !openFilter"
-                            class="flex items-center justify-center text-gray-500 bg-white border border-gray-300 
-                                   rounded-lg text-sm px-4 py-2 hover:bg-gray-100 
-                                   dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 
-                                   dark:hover:bg-gray-700 dark:hover:text-white">
-                            Filtrar
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <!-- Menú Filtro -->
-                        <div x-show="openFilter" x-transition
-                            class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-700 rounded-lg shadow 
-                                   divide-y divide-gray-100 dark:divide-gray-600 z-50">
-                            <div class="p-3">
-                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-200">
-                                    Categoría
-                                </label>
-                                <select class="mt-1 block w-full border-gray-300 rounded-md shadow-sm 
-                                               dark:bg-gray-800 dark:border-gray-600">
-                                    <option>Sala</option>
-                                    <option>Oficina</option>
-                                    <option>Almacenamiento</option>
-                                    <option>Exterior</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -78,18 +44,17 @@
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
-                            <th class="px-4 py-3">Nombre del producto</th>
-                            <th class="px-4 py-3">Categoria</th>
-                            <th class="px-4 py-3">Precio</th>
-                            <th class="px-4 py-3">Descripcion</th>
-                            <th class="px-4 py-3">Foto</th>
+                            <th class="px-4 py-3 text-center">Nombre del empleado</th>
+                            <th class="px-4 py-3 text-center">Apellidos del empleado</th>
+                            <th class="px-4 py-3 text-center">Correo</th>
+                            <th class="px-4 py-3 text-center">Telefono</th>
                             <th class="px-4 py-3">
                                 <span class="sr-only">Acciones</span>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <livewire:empleado.list-empleado />
+                        <livewire:empleados.list-empleados />
                     </tbody>
                 </table>
             </div>

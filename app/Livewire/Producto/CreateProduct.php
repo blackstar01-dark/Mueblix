@@ -34,7 +34,6 @@ class CreateProduct extends Component
     }
 
 
-    #[Layout('components.layouts.app')]
     public function render()
     {
         return view('livewire.producto.create-product');
