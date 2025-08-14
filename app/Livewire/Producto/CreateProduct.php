@@ -17,6 +17,7 @@ class CreateProduct extends Component
     public ProductForm $form;
 
     public function openModal(){
+
         $this->showModal = true;
     }
 

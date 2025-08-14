@@ -36,13 +36,36 @@
                 Total: ${{ number_format($total,2) }}
             </p>
 
-            <button 
-                wire:click="pagoConMercadoPago" 
-                class="bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded transition duration-200">
-                Pagar con Mercado Pago
-            </button>
+            <div class="flex gap-4">
+
+                <!-- Contenedor PayPal -->
+                <div id="paypal-button-container"></div>
+            </div>
         </div>
     @else
         <p class="text-gray-700 dark:text-gray-300">Tu carrito está vacío</p>
     @endif
 </div>
+
+<!-- SDK de PayPal -->
+<script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&currency=MXN"></script>
+<script>
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '{{ $total }}' // Total del carrito
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Pago completado por ' + details.payer.name.given_name);
+                // Redirigir a ruta de éxito
+                window.location.href = "{{ route('comprar-exito') }}";
+            });
+        }
+    }).render('#paypal-button-container'); // Renderizar botón PayPal
+</script>

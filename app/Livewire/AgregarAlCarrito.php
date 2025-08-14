@@ -6,11 +6,11 @@ use Livewire\Component;
 
 class AgregarAlCarrito extends Component
 {
-    public $producto; // ✅ Aquí declaramos la variable para recibir el producto
+    public $producto; 
     public $cart = [];
     public $total = 0;
 
-    public function mount($producto) { // ✅ Recibimos el producto desde la vista
+    public function mount($producto) { 
         $this->producto = $producto;
         $this->cart = session('cart', []);
         $this->calcularTotal();
@@ -33,6 +33,8 @@ class AgregarAlCarrito extends Component
 
         session(['cart' => $this->cart]);
         $this->calcularTotal();
+
+
     }
 
     public function calcularTotal() {
@@ -41,6 +43,8 @@ class AgregarAlCarrito extends Component
             $this->total += $item['precio'] * $item['cantidad'];
         }
     }
+
+
 
     public function render()
     {

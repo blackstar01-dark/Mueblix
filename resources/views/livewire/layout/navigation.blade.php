@@ -20,19 +20,25 @@ $logout = function (Logout $logout) {
         </a>
 
         <!-- Botones (login/logout y hamburguesa) -->
-        <div class="flex md:order-2 items-center space-x-3 md:space-x-0 rtl:space-x-reverse">
-            @if(Auth::guard('clientes')->check())
-                <span class="text-green-600 font-semibold mr-4">Hola, {{ Auth::guard('clientes')->user()->nombres ?? 'Cliente' }}</span>
-                <a href="/carrito" class="relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007 17h10a1 1 0 00.9-.55L21 9M7 13V6h10v7" />
-                    </svg>
-                    <span class="absolute -top-2 -right-2 bg-green-600 text-white rounded-full text-xs px-1">
-                        
-                    </span>
-                </a>
-                <livewire:actions.logout-cliente />
+        <div class="flex md:order-2 items-center space-x-4 rtl:space-x-reverse">
+        @if(Auth::guard('clientes')->check())
+        <!-- Saludo -->
+        <span class="text-green-600 font-semibold mr-">
+            Hola, {{ Auth::guard('clientes')->user()->nombres ?? 'Cliente' }}
+        </span>
+
+        <!-- Carrito -->
+        <a href="/carrito" class="relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            </svg>
+            <!-- Contador Livewire -->
+            <span class="absolute -top-2 -right-2 bg-green-600 text-white rounded-full text-xs px-2">
+                {{ session('cart') ? count(session('cart')) : 0 }}
+            </span>
+        </a>
+        <!-- Logout -->
+        <livewire:actions.logout-cliente />
             @elseif(Auth::guard('administradores')->check())
                 <div class="flex items-center space-x-4">
                     <a href="/administradores/index" class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2" wire:navigate.hover>
@@ -42,7 +48,7 @@ $logout = function (Logout $logout) {
                 </div>
             @elseif(Auth::guard('empleados')->check())
                 <div class="flex items-center space-x-4">
-                    <a href="" class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">
+                    <a href="/administradores/index" class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">
                         Menú Empleados
                     </a>
                     <livewire:actions.logout-empleado />

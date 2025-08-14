@@ -9,6 +9,8 @@ use Livewire\WithFileUploads;
 
 class ProductForm extends Form
 {
+    public ?Producto $producto;
+
     use WithFileUploads;
 
     #[Validate('required|min:5')]
@@ -29,6 +31,17 @@ class ProductForm extends Form
     #[Validate('nullable|image|max:2048')]
     public $imagen;
 
+    public function setProducto(Producto $producto) {
+        $this->nombre = $producto->nombre;
+        $this->descripcion = $producto->descripcion;
+        $this->precio = $producto->precio;
+        $this->cantidad = $producto->cantidad;
+        $this->categoria  = $producto->categoria;
+        $this->imagen = $producto->imagen;
+
+        $this->producto = $producto;
+    }
+
     public function store()
     {
         $this->validate();
@@ -46,6 +59,22 @@ class ProductForm extends Form
             'categoria' => $this->categoria,
             'cantidad' => $this->cantidad,
             'imagen' => $ruta, // <-- solo la ruta, no el archivo
+        ]);
+    }
+
+    public function update(){
+        $this->validate();
+        $ruta = $this->imagen
+            ? $this->imagen->store('productos', 'public')
+            : null;
+
+        Producto::updated([
+            'nombre' => $this->nombre,
+            'descripcion' => $this->descripcion,
+            'precio' => $this->precio,
+            'categoria' => $this->categoria,
+            'cantidad' => $this->cantidad,
+            'imagen' => $ruta,
         ]);
     }
 
